@@ -20,14 +20,7 @@ Hoje a requisição pode demorar dias (e há relatos de pessoas que nunca recebe
 ### Hora da instalação
 
 Este código usa Python 3.7. Instale [aqui](https://www.python.org/downloads/).
-E não se esqueça das seguintes bibliotecas:
-- configparser (caso você queira subir o seu projeto depois de forma anônima. Caso não queira, você poderá excluir as linhas 3, 14, 16, 17, 18. Nas linhas 22, 23, 24 e 25, substitua tudo que vier depois de `=` pelas tokens.)
-- numpy
-- pandas
-- requests
-- tweepy
-
-Você também poderá instalar todas de uma vez digitando `pip install -r requirements.txt`em seu terminal.
+Para as bibliotecas, instale todas de uma vez digitando `pip install -r requirements.txt`em seu terminal.
 
 ### Abrindo
 
@@ -41,7 +34,7 @@ O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidad
 
 ## Créditos
 
-Este bot foi desenvolvido por [João Ernane](https://github.com/jovemadulto) e [Judite Cypreste](https://juditecypreste.github.io).
+Este bot foi desenvolvido por [João Ernane],(https://github.com/jovemadulto), [João Purger](https://github.com/JCPurger) e [Judite Cypreste](https://juditecypreste.github.io).
 
 ## The MIT License (MIT)
 
