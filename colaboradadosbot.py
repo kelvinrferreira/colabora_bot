@@ -7,6 +7,7 @@ import requests
 import tweepy
 import configparser
 import settings
+import random
 
 #Fingindo ser um humano
 
@@ -39,7 +40,7 @@ df = pd.read_csv('lista_portais.csv', header=None, names=['url', 'arroba', 'orga
 
 df = df.replace(np.nan, '', regex=True) 
 
-#Acessando urls e dando diagnóstico
+#Acessando urls
 
 for index, row in df.iterrows():
 
@@ -48,15 +49,33 @@ for index, row in df.iterrows():
         arroba = row['arroba']
         orgao = row['orgao']
         status_code = requests.get(row['url'], headers=headers).status_code
+        
+#Lista de frases que o bot vai twittar
 
-    except requests.HTTPError as erro:
-        if arroba == "":
-            bot.update_status(f"O portal com dados públicos [ {url} ] do órgão {orgao} parece não estar funcionando. Poderia me ajudar a checar?")
-        else:
-            bot.update_status(f"Parece que [ {url} ] está apresentando está com probleminhas para ser acessado. O que está acontecendo {arroba}?")
+        #Frases com nome do órgão
 
-    except requests.ConnectionError as erro1:
+        com_orgao = [f"O portal com dados públicos [ {url} ] do órgão {orgao} parece não estar funcionando. Poderia me ajudar a checar?",
+                     f"Hum, parece que o site [ {url} ], mantido pelo órgão {orgao}, está apresentando erro. Poderia dar uma olhadinha?",
+                     f"Poxa, tentei acessar [ {url} ] e não consegui. Este site é mantido pelo órgão {orgao}. Você pode confirmar isso?",
+                     f"Não consigo acessar [ {url} ], e eu sei que ele é mantido pelo órgão {orgao}. Você pode me ajudar a verificar?",
+                     f"Sabe o portal [ {url} ], mantido pelo orgão {orgao}? Ele parece estar fora do ar. Você pode confirmar?"]                    
+        msg_orgao = random.choice(com_orgao)
+        tweet_orgao = f'{msg_orgao}'
+
+        #Frases com arroba
+
+        com_arroba = [f"Parece que [ {url} ] está apresentando probleminhas para ser acessado. O que está acontecendo {arroba}?",
+                     f"Oi {arroba}, tudo bem? Pois com esse site [ {url} ] parece não estar, já que ele possui problemas de acesso.",
+                     f"Portais da transparência são um direito ao acesso à informação {arroba}, mas parece que [ {url} ] está fora do ar.",
+                     f"Opa {arroba}, parece que o site [ {url} ] não está acessível como deveria. O que está acontecendo?",
+                     f"Tentei acessar o site [ {url} ] e não consegui. {arroba} está acontecendo algum problema com essa portal de transparência?"]
+        msg_arroba = random.choice(com_arroba)
+        tweet_arroba = f'{msg_arroba}'
+
+#Dando diagnóstico e twittando
+
+    except (requests.HTTPError, requests.ConnectionError) as erro:
         if arroba == "":
-            bot.update_status(f"Hum, parece que o site [ {url} ], mantido pelo órgão {orgao}, está apresentando erro. Poderia dar uma olhadinha?")
+            bot.update_status(tweet_orgao)
         else:
-            bot.update_status(f"Tentei acessar [ {url} ], mas não consegui. {arroba} o que houve com os dados públicos?")
+            bot.update_status(tweet_arroba)
