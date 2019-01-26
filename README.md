@@ -34,7 +34,7 @@ O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidad
 
 ## Créditos
 
-Este bot foi desenvolvido por [João Ernane],(https://github.com/jovemadulto), [João Purger](https://github.com/JCPurger) e [Judite Cypreste](https://juditecypreste.github.io).
+Este bot foi desenvolvido por [João Ernane](https://github.com/jovemadulto), [João Purger](https://github.com/JCPurger) e [Judite Cypreste](https://juditecypreste.github.io).
 
 ## The MIT License (MIT)
 
