@@ -3,19 +3,19 @@
 
 <a href="https://twitter.com/colaboradados"> <img src="colaboradados_twitter_logo.png" width="200"></a>
 
-O bot que verifica quando portais da transparência governamentais saem do ar.
+O robô que monitora o acesso aos portais de transparência pública governamentais.
 Siga [**@colaboradados**](https://twitter.com/colaboradados)
 
 ## Instalando o bot
 
 ### No Twitter
 
-Primeiro você deve obter suas tokens para usar a API do Twitter: 
+Você deverá obter suas tokens para usar a API do Twitter: 
 
 1. Crie sua conta normalmente, caso não a tenha. 
 2. Em seguida solicite uma developer account [aqui](https://developer.twitter.com/en/apply/user). 
 
-Hoje a requisição pode demorar dias (e há relatos de pessoas que nunca receberam). Seja o mais descritivo possível com relação ao seu projeto e fique atento aos e-mails, pois o Twitter poderá pedir informações adicionais. Também é por email que o Twitter avisará que sua requisição foi aceita. Caso isso aconteça: comemore (uhull!) e crie um app clicando [aqui](https://developer.twitter.com/en/apps). Desta forma você terá acesso a suas tokens que são: consumer_key, consumer_secret, access_token e access_token_secret.
+Hoje a requisição pode demorar dias (e há relatos de pessoas que nunca receberam). Seja o mais descritivo possível com relação ao seu projeto e fique atento aos e-mails, pois o Twitter poderá pedir informações adicionais. Também é por email que o Twitter avisará que sua requisição foi aceita. Caso isso aconteça: comemore (uhull!) e crie um app clicando [aqui](https://developer.twitter.com/en/apps). Desta forma você terá acesso as suas tokens que são: consumer_key, consumer_secret, access_token e access_token_secret.
 
 ### Hora da instalação
 
@@ -30,7 +30,7 @@ Para as bibliotecas, instale todas de uma vez digitando `pip install -r requirem
 
 ### Colaborando com a bases de dados (e sendo uma pessoa muito legal)
 
-O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidade e com a ajuda da mesma. Para ajudar com nossa base de dados você poderá ajudar em nossas issues quando elas aparecerem ou editando diretamente nosso arquivo csv.  
+O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidade e com a ajuda da mesma. Para ajudar com nossa base de dados você poderá resolver nossas issues ou editando diretamente nosso arquivo csv.  
 
 ## Créditos
 
