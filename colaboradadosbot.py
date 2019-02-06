@@ -8,8 +8,8 @@ import settings
 from requests import get, exceptions
 from tweet_frases import tweet_arroba, tweet_orgao
 
-TOTAL_RETRY = 10
-STATUS_SUCCESS = 200
+TOTAL_TENTATIVAS = 10
+STATUS_SUCESSO = 200
 
 # Fingindo ser um humano
 
@@ -30,7 +30,7 @@ auth.set_access_token(access_token, access_token_secret)
 bot = tweepy.API(auth)
 
 
-def tweet_status_site(arroba, orgao, url):
+def criar_tweet(arroba, orgao, url):
     """Criando o tweet com o status do site recém acessado"""
     if arroba == "":
         bot.update_status(tweet_orgao(url=url, orgao=orgao))
@@ -38,7 +38,7 @@ def tweet_status_site(arroba, orgao, url):
         bot.update_status(tweet_arroba(url=url, arroba=arroba))
 
 
-def load_site_data():
+def carregar_dados_site():
     """
     Abrindo a lista de portais da transparência e tratando
     informações que serão tratados como NaN para o pandas.
@@ -54,7 +54,7 @@ def load_site_data():
     return df
 
 
-def fetch_and_access_sites(sites):
+def busca_disponibilidade_sites(sites):
     """
     Percorrendo a lista de sites para verificar
     a sua disponibilidade. Caso o código de status
@@ -66,19 +66,19 @@ def fetch_and_access_sites(sites):
     for index, row in sites.iterrows():
         url, arroba, orgao = row['url'], row['arroba'], row['orgao']
 
-        for tentativa in range(TOTAL_RETRY):
+        for tentativa in range(TOTAL_TENTATIVAS):
             try:
-                response = get(row['url'], timeout=30, headers=headers)
-                if response.status_code == STATUS_SUCCESS:
+                resposta = get(row['url'], timeout=30, headers=headers)
+                if resposta.status_code == STATUS_SUCESSO:
                     continue
 
-                tweet_status_site(arroba, orgao, url)
+                criar_tweet(arroba, orgao, url)
             except exceptions.ConnectionError:
                 print(f"Problemas na conexão ao acessar o órgão {orgao}")
             except exceptions.ReadTimeout:
-                tweet_status_site(arroba, orgao, url)
+                criar_tweet(arroba, orgao, url)
 
 
 if __name__ == '__main__':
-    sites = load_site_data()
-    fetch_and_access_sites(sites)
+    sites = carregar_dados_site()
+    busca_disponibilidade_sites(sites)
