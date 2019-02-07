@@ -30,7 +30,9 @@ Para as bibliotecas, instale todas de uma vez digitando `pip install -r requirem
 
 ### Colaborando com a bases de dados (e sendo uma pessoa muito legal)
 
-O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidade e com a ajuda da mesma. Para ajudar com nossa base de dados você poderá resolver nossas issues ou editando diretamente nosso arquivo csv.  
+O **Colaboradados** é uma iniciativa sem fins lucrativos e feita para comunidade e com a ajuda da mesma. Para ajudar com nossa base de dados você poderá resolver nossas issues ou editando diretamente nosso arquivo csv.
+
+Fique atento ao fato de que nosso programa foi criado pensando no escopo nacional brasileiro, portanto seu código é - deverá ser - sempre em português, onde possível. Evite estrangeirismos e colabore para que nosso código seja estudado por todos aqueles interessados em transparência.
 
 ## Créditos
 
