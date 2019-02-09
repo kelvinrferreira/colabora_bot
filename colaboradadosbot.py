@@ -32,10 +32,7 @@ bot = tweepy.API(auth)
 
 def criar_tweet(arroba, orgao, url):
     """Criando o tweet com o status do site recém acessado"""
-    if arroba == "":
-        bot.update_status(tweet_orgao(url=url, orgao=orgao))
-    else:
-        bot.update_status(tweet_arroba(url=url, arroba=arroba))
+    bot.update_status(tweet_orgao(url=url, orgao=orgao))
 
 
 def carregar_dados_site():
