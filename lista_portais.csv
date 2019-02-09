@@ -1,4 +1,4 @@
-﻿http://dados.gov.br/;@dadosgovbr;Governo Federal
+http://dados.gov.br/;@dadosgovbr;Governo Federal
 http://www.portaldatransparencia.gov.br/;@dadosgovbr;Governo Federal
 http://www12.senado.leg.br/transparencia/;@SenadoFederal;Senado Federal
 http://www2.camara.leg.br/transparencia;@camaradeputados;Câmara Dos Deputados
@@ -59,3 +59,5 @@ http://portaldatransparencia.palmas.to.gov.br/;@cidadepalmas;Prefeitura de Palma
 http://www2.datasus.gov.br/DATASUS/index.php?area=02;@DatasusMS;Datasus
 http://www.ancine.gov.br/pt-br/acesso-a-informacao/dados_abertos;@AncineGovBr;Ancine
 https://www.al.sp.gov.br/dados-abertos/;@AssembleiaSP;Assembleia Legislativa do Estado de São Paulo
+http://divulgacandcontas.tse.jus.br/divulga;@tsejusbr;Tribunal Superior Eleitoral
+http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais;@tsejusbr;Tribunal Superior Eleitoral
