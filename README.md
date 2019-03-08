@@ -4,7 +4,7 @@
 <a href="https://twitter.com/colaboradados"> <img src="colaboradados_twitter_logo.png" width="200"></a>
 
 O robô que monitora o acesso aos portais de transparência pública governamentais.
-Siga [**@colaboradados**](https://twitter.com/colaboradados)
+Siga [**@colabora_bot**](https://twitter.com/colabora_bot)
 
 ## Instalando o bot
 
