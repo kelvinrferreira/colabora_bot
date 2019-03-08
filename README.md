@@ -1,4 +1,4 @@
-# Colaboradados: o bot
+# Colaborabot
 
 
 <a href="https://twitter.com/colaboradados"> <img src="colaboradados_twitter_logo.png" width="200"></a>
