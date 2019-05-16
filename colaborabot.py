@@ -176,4 +176,4 @@ if __name__ == '__main__':
     sites = carregar_dados_site()
     while True:
         busca_disponibilidade_sites(sites)
-        sleep(300)
+        sleep(600)
