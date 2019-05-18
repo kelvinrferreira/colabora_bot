@@ -5,6 +5,7 @@ from pathlib import Path
 env_path = Path('./credenciais') / '.env'
 load_dotenv(dotenv_path=env_path, override=True)
 
+debug = os.getenv("DEBUG", False)
 # [Twitter API Keys]
 consumer_key = os.environ.get('CONSUMER_KEY')
 consumer_secret = os.environ.get('CONSUMER_SECRET')
