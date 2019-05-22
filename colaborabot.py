@@ -124,7 +124,7 @@ def carregar_dados_site():
     informações que serão tratados como NaN para o pandas.
     """
     df = pd.read_csv(
-        'lista_portais.csv',
+        'dados/lista_portais.csv',
         header=None,
         names=['url', 'arroba', 'orgao'],
         sep=';'
