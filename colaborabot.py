@@ -9,7 +9,7 @@ import csv
 from pathlib import Path
 from time import sleep
 from requests import get, exceptions
-from credenciais import settings
+import settings
 
 from divulga import lista_frases, checar_timelines, google_sshet
 from autenticadores import twitter_auth, google_api_auth, masto_auth
@@ -124,7 +124,7 @@ def carregar_dados_site():
     informações que serão tratados como NaN para o pandas.
     """
     df = pd.read_csv(
-        'lista_portais.csv',
+        'dados/lista_portais.csv',
         header=None,
         names=['url', 'arroba', 'orgao'],
         sep=';'
