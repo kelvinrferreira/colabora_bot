@@ -9,7 +9,7 @@ import csv
 from pathlib import Path
 from time import sleep
 from requests import get, exceptions
-from credenciais import settings
+import settings
 
 from divulga import lista_frases, checar_timelines, google_sshet
 from autenticadores import twitter_auth, google_api_auth, masto_auth

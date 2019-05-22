@@ -1,6 +1,6 @@
 from authlib.client import AssertionSession
 from mastodon import Mastodon
-from credenciais import settings
+import settings
 import tweepy
 import json
 
