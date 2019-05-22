@@ -9,6 +9,7 @@ import csv
 from pathlib import Path
 from time import sleep
 from requests import get, exceptions
+from credenciais import settings
 
 from divulga import lista_frases, checar_timelines, google_sshet
 from autenticadores import twitter_auth, google_api_auth, masto_auth
@@ -58,7 +59,7 @@ def plan_gs(dia, mes, ano):
         planilha = google_drive_creds.create(f'colaborabot-sites-offline-{dia:02d}{mes:02d}{ano:04d}')  # Exemplo de nome final: colaborabot-sites-offline-27022019
         cabecalho = planilha.get_worksheet(index=0)
         cabecalho.insert_row(values=['data_bsb', 'data_utc', 'url', 'orgao', 'cod_resposta'])
-        
+
         plan_indice = google_drive_creds.open_by_key('1kIwjn2K0XKAOWZLVRBx9lOU5D4TTUanvmhzmdx7bh0w')
         tab_indice = plan_indice.get_worksheet(index=1)
         endereco = f'docs.google.com/spreadsheets/d/{planilha.id}/'
@@ -152,26 +153,31 @@ def busca_disponibilidade_sites(sites):
                     break
                 else:
                     if tentativa == TOTAL_TENTATIVAS:
-                        preenche_tab_gs(planilha=planilha_google, dados=dados)
+                        if not settings.debug:
+                            preenche_tab_gs(planilha=planilha_google, dados=dados)
                         preenche_csv(arquivo_logs=arq_log, dados=dados)
                         print(f"""{momento}; url: {url}; orgão: {orgao}; resposta: {resposta.status_code}""")
-                        checar_timelines(mastodon_handler=mastodon_bot, url=url, orgao=orgao)
+                        if not settings.debug:
+                            checar_timelines(mastodon_handler=mastodon_bot, url=url, orgao=orgao)
 
             except (exceptions.ConnectionError, exceptions.Timeout, exceptions.TooManyRedirects) as e:
                 dados = cria_dados(url=url, portal=orgao, resposta=str(e))
-                preenche_tab_gs(planilha=planilha_google, dados=dados)
+                if not settings.debug:
+                    preenche_tab_gs(planilha=planilha_google, dados=dados)
                 preenche_csv(arquivo_logs=arq_log, dados=dados)
                 print(f"""{momento}; url: {url}; orgão: {orgao}; resposta:{str(e)}""")
-                checar_timelines(mastodon_handler=mastodon_bot, url=url, orgao=orgao)
+                if not settings.debug:
+                    checar_timelines(mastodon_handler=mastodon_bot, url=url, orgao=orgao)
                 break
 
 
 if __name__ == '__main__':
-    mastodon_bot = masto_auth()
-    twitter_bot = twitter_auth()
-    google_creds = google_api_auth()
-    google_drive_creds = google_sshet()
-    planilha_google = plan_gs(dia=DIA, mes=MES, ano=ANO)
+    if not settings.debug:
+        mastodon_bot = masto_auth()
+        twitter_bot = twitter_auth()
+        google_creds = google_api_auth()
+        google_drive_creds = google_sshet()
+        planilha_google = plan_gs(dia=DIA, mes=MES, ano=ANO)
     arq_log = plan_csv()
     sites = carregar_dados_site()
     while True:
