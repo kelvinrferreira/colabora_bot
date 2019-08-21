@@ -87,7 +87,8 @@ Fique atento ao fato de que nosso programa foi criado pensando no escopo naciona
 Nosso projeto é uma porta de entrada para que pessoas das mais diversas áreas do conhecimento se interessem com o processo tecno-cívico participativo, portanto acreditamos que o robô deve ser de fácil entendimento para aqueles que não possuem tanta familiaridade com técnicas mais avançadas de programação.
 
 _Simples é melhor que complexo_
-_Complexo é melhor que complicado_ 
+
+_Complexo é melhor que complicado_
 
 ## Créditos
 

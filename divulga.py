@@ -29,13 +29,15 @@ def lista_frases(url, orgao):
     return msg_orgao
 
 
-def checar_timelines(mastodon_handler, url, orgao):
+def checar_timelines(twitter_hander, mastodon_handler, url, orgao):
     """
     Recupera os 10 últimos toots da conta do Mastodon.
     Caso a URL não esteja entre as últimas notificadas, é feita a postagem.
     Feature necessária para não floodar a timeline alheia caso um site fique offline por longos períodos de tempo.
     """
+
     mastodon_bot = mastodon_handler
+    twitter_bot = twitter_hander
     urls_postadas = []
     timeline = mastodon_bot.timeline_home(limit=10)
     for toot in timeline:
@@ -44,4 +46,4 @@ def checar_timelines(mastodon_handler, url, orgao):
                  for toot in urls_postadas)
     if not contem:
         mastodon_bot.toot(lista_frases(url=url, orgao=orgao))
-        # Lugar reservado para tweetar, caso queiram.
+        twitter_bot.update_status(status=lista_frases(url=url, orgao=orgao))

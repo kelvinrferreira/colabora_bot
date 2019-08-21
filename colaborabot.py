@@ -161,7 +161,7 @@ def busca_disponibilidade_sites(sites):
                 preenche_csv(arquivo_logs=arq_log, dados=dados)
                 print(f"""{momento}; url: {url}; orgão: {orgao}; resposta:{str(e)}""")
                 if not settings.debug:
-                    checar_timelines(mastodon_handler=mastodon_bot, url=url, orgao=orgao)
+                    checar_timelines(twitter_hander=twitter_bot, mastodon_handler=mastodon_bot, url=url, orgao=orgao)
                 break
 
 
