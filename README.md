@@ -65,7 +65,7 @@ Para utilizar o Google Sheets, utilizamos a biblioteca [gspread](https://gspread
 
 2. No menu do lado esquerdo, selecione "Credenciais" e clique no botão "Criar credenciais", escolhendo a opção de "Chave de conta de serviço". Escolha o formato json e salve o arquivo em seu computador.
 
-3. Este arquivo deverá ser inserido na pasta `dados\colaborabot-gAPI.json`, assim como está descrito no programa `autenticadores.py`.
+3. Este arquivo deverá ser inserido na pasta `credenciais\colaborabot-gAPI.json`, assim como está descrito no programa `autenticadores.py`.
 
 ### Hora da instalação
 
