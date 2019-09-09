@@ -61,7 +61,7 @@ Certifique-se de modificar os parâmetros conforme necessário.
 
 Para utilizar o Google Sheets, utilizamos a biblioteca [gspread](https://gspread.readthedocs.io/en/latest/) juntamente com a [Authlib](https://blog.authlib.org/2018/authlib-for-gspread) para autenticação.
 
-1. O primeiro passo é conseguir um token de acesso de aplicação do Google Sheets. Acesse o (https://console.developers.google.com/project)[Google API Console] e crie um projeto (ou selecione um que você já tenha criado).
+1. O primeiro passo é conseguir um token de acesso de aplicação do Google Sheets. Acesse o [Google API Console](https://console.developers.google.com/project) e crie um projeto (ou selecione um que você já tenha criado).
 
 2. No menu do lado esquerdo, selecione "Credenciais" e clique no botão "Criar credenciais", escolhendo a opção de "Chave de conta de serviço". Escolha o formato json e salve o arquivo em seu computador.
 
