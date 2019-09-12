@@ -136,7 +136,7 @@ def busca_disponibilidade_sites(sites):
     for row in sites:
         url, arroba, orgao = row.url, row.arroba, row.orgao
 
-        for tentativa in range(TOTAL_TENTATIVAS):
+        for tentativa in range(1, TOTAL_TENTATIVAS+1):
             try:
                 momento = datetime.datetime.now().isoformat(sep=' ', timespec='seconds')
                 resposta = get(url, timeout=30, headers=headers)
